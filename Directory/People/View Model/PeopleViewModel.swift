@@ -43,18 +43,6 @@ class PeopleViewModel {
     func search(for searchString: String) {
         guard !searchString.isEmpty else { return }
 
-//        let stub = """
-//        [{"createdAt":"2022-01-24T17:02:23.729Z","firstName":"Maggie","avatar":"https://randomuser.me/api/portraits/women/21.jpg","lastName":"Brekke","email":"Crystel.Nicolas61@hotmail.com","jobtitle":"Future Functionality Strategist","favouriteColor":"pink","id":"1"}]
-//        """.data(using: .utf8)
-//
-//        people = try! People(fromJSON: stub!)
-//
-//        if let reloadAction = updateDataHandler {
-//            reloadAction()
-//        }
-//
-//        return
-
         apiService.fetch(resource: .people, of: People.self, withPrameters: ["search": searchString]) {
             [weak self]
             result in
