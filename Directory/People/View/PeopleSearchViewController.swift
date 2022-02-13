@@ -34,8 +34,7 @@ class PeopleSearchViewController: UITableViewController {
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
 
-        tableView.tableHeaderView = searchController.searchBar
-        // self.navigationItem.titleView = self.searchController.searchBar;
+        navigationItem.titleView = searchController.searchBar
 
         viewModel.updateDataHandler = {
             [weak self] in
@@ -72,7 +71,7 @@ extension PeopleSearchViewController {
         let cell: UITableViewCell
 
         if viewModel.error != nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "peopleSeachErrorCell")
+            cell = UITableViewCell(style: .default, reuseIdentifier: "peopleSearchErrorCell")
             cell.textLabel?.text = viewModel.error?.localizedDescription
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.numberOfLines = 0
