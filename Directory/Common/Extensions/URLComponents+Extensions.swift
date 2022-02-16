@@ -7,8 +7,9 @@
 
 import Foundation
 
-extension URLComponents {
-    /// Convinience function to add query parameters to url ensuring valid syntax
+public extension URLComponents {
+    /// Convinience function to add query parameters to a url ensuring valid syntax
+    /// 
     /// - Parameter parameters: Key, Value pairs to add as url query items,
     ///                         setting parameters to nil will remove all parameters
     mutating func setQueryItems(with parameters: [String: String]?) {

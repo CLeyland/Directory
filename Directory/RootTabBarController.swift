@@ -15,31 +15,18 @@ import UIKit
 /// Tab 2 show the list of Meeting rooms available
 class RootTabBarController: UITabBarController {
     override func viewDidLoad() {
-//        if #available(iOS 13.0, *) {
-//            let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
-//            tabBarAppearance.configureWithDefaultBackground()
-//            tabBarAppearance.backgroundColor = UIColor.secondarySystemBackground
-//            UITabBar.appearance().standardAppearance = tabBarAppearance
-//
-//            if #available(iOS 15.0, *) {
-//                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-//            }
-//        }
-
         // Create People tab
         let peopleTab = PeopleSplitViewController()
         let peopleTabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
         peopleTab.tabBarItem = peopleTabBarItem
 
         // Create Rooms tab
-        let roomsTab = UIViewController()
+        let roomsTab = UINavigationController(rootViewController: RoomListViewController())
         let roomsTabItem = UITabBarItem(title: NSLocalizedString("Meeting Rooms", comment: "Rooms view tab title"),
                                         image: UIImage(named: "meetingRoom"),
                                         tag: 1)
         roomsTab.tabBarItem = roomsTabItem
-        
-        self.tabBar.tintColor = .VirginMoney.primary
-        
+
         // Add the 2 tabs to the tab bar
         viewControllers = [peopleTab, roomsTab]
     }

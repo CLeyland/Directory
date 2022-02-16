@@ -9,6 +9,7 @@ import Foundation
 
 public extension Decodable {
     /// Create a new object from a JSON representation
+    ///
     /// - Parameter fromJSON: JSON string as Data
     /// - Throws: JSONDecoder decode error
     init(fromJSON jsonData: Data, dateDecodingStratergy: JSONDecoder.DateDecodingStrategy? = nil) throws {

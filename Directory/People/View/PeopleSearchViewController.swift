@@ -8,13 +8,17 @@
 import Foundation
 import UIKit
 
+/// Allows updating Person detail view when a Person search result is selected
 protocol PeopleSearchViewControllerDelegate: AnyObject {
     func didSelect(person: Person) -> Void
     func splitViewDetailController() -> UIViewController
 }
 
+/// View controller to search & display results from the API Person endpoint
+///
+/// Thsi view serves as the UISPlitViewControllers primary view controller
 class PeopleSearchViewController: UITableViewController {
-    let searchController = UISearchController(searchResultsController: nil)
+    private let searchController = UISearchController(searchResultsController: nil)
 
     weak var delegate: PeopleSearchViewControllerDelegate?
 
@@ -24,8 +28,6 @@ class PeopleSearchViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // navigationController?.navigationBar.prefersLargeTitles = true
 
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -47,17 +49,6 @@ class PeopleSearchViewController: UITableViewController {
 }
 
 // ************************************************************
-// Handle scrolling results table
-// ************************************************************
-// extension PeopleSearchViewController {
-//    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        if searchController.searchBar.isFirstResponder {
-//            searchController.searchBar.resignFirstResponder()
-//        }
-//    }
-// }
-
-// ************************************************************
 // UItableView delegate & datasource methods
 // ************************************************************
 extension PeopleSearchViewController {
@@ -70,6 +61,9 @@ extension PeopleSearchViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
 
+        // If the search errors we'll show a cell with the loclized error
+        // else show the name and job title.
+        // As these are simple cells we can just use MVC - no additinal model is required
         if viewModel.error != nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: "peopleSearchErrorCell")
             cell.textLabel?.text = viewModel.error?.localizedDescription
@@ -102,11 +96,12 @@ extension PeopleSearchViewController {
 extension PeopleSearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         if !(searchController.searchBar.text?.isEmpty ?? true) {
-            viewModel.currentSearch = searchController.searchBar.text
+            viewModel.searchText = searchController.searchBar.text
         }
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.currentSearch = nil
+        // By setting searchText to nil we'll cancel any debounced action still waiting to execute
+        viewModel.searchText = nil
     }
 }

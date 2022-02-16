@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-/// Extension providing convinient access Virgin Media brand colours
-extension UIColor {
+/// Extension providing convinient access Virgin Money brand colours
+public extension UIColor {
     /// Organisation Struct to hold custom colours from the Virgin Mone ybrand
     struct VirginMoney {
         /// Virgin Money primary brand colour

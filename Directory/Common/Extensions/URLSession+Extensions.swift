@@ -7,12 +7,15 @@
 
 import Foundation
 
-extension URLSession {
-    /// Create a data task for the URLRequest that will automatically decode the JSON reponse into the requested Object
+public extension URLSession {
+    /// Creates a task that retrieves the contents of the specified URL,
+    /// attempts to decode it to the requested type, then calls a handler upon completion.
+    ///
     /// - Parameters:
     ///   - type: Type to decode the JSON too when response received
     ///   - request: A URL request object that provides the URL, cache policy, request type, body data or body stream, and so on.
     ///   - completionHandler: The completion handler to call when the load request is complete.
+    ///
     /// - Returns: URLSessionDataTask
     func decodedDataTask<T: Decodable>(with url: URL, of type: T.Type, completionHandler: @escaping (T?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         URLSession.shared.dataTask(with: url) {

@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13, *) {
             // If we're on iOS 13+ we'll be using scenes so app setup
-            // and will be handled in SceneDelegate.swift
+            // will be handled in SceneDelegate.swift
         } else {
             // Create a new Window and set its bounds to fill the devices screen
             window = UIWindow()
