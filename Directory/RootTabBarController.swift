@@ -5,6 +5,7 @@
 //  Created by Chris on 12/02/2022.
 //
 
+import DirectoryAPI
 import Foundation
 import UIKit
 
