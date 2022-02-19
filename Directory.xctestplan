@@ -9,7 +9,6 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false,
     "targetForVariableExpansion" : {
       "containerPath" : "container:Directory.xcodeproj",
       "identifier" : "941849F227B7CFB100A472EC",
@@ -25,6 +24,7 @@
       }
     },
     {
+      "enabled" : false,
       "target" : {
         "containerPath" : "container:Directory.xcodeproj",
         "identifier" : "94184A1227B7CFB300A472EC",
@@ -33,14 +33,14 @@
     },
     {
       "target" : {
-        "containerPath" : "container:..\/Common",
+        "containerPath" : "container:Common",
         "identifier" : "CommonTests",
         "name" : "CommonTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:..\/Common",
+        "containerPath" : "container:Common",
         "identifier" : "DirectoryAPITests",
         "name" : "DirectoryAPITests"
       }

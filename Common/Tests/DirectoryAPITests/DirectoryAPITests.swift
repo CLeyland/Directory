@@ -23,7 +23,7 @@ final class CommonTests: XCTestCase {
     }
     
     /// Test API fetch, ideally this should be decoupled from the backend server
-    /// so changes/avaliability of eth server do not affec tthe outcome of the test
+    /// so changes/avaliability of the server do not affec tthe outcome of the test
     func testFetchAPI() throws {
         // Create an expectation
         let expectation = self.expectation(description: "test expectation")
