@@ -74,7 +74,7 @@ class RoomsViewModel {
 
     /// Filter the room list based on occupancy status
     /// - Parameter occupied: Bolean indicating occupancy filter status
-    func filter(occupied: occupancyState) {
+    private func filter(occupied: occupancyState) {
         let parameters: [String: String] = ["isOccupied": occupied.filterValue()].compactMapValues { $0 }
 
         apiService.fetch(resource: .rooms, of: Rooms.self, withPrameters: parameters) {

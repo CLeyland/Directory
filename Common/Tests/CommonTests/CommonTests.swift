@@ -12,4 +12,9 @@ final class CommonTests: XCTestCase {
     func testBrandPrimaryColor() throws {
         XCTAssertEqual(UIColor.VirginMoney.red, UIColor.VirginMoney.primary)
     }
+    
+    func testCapitalisePropertyWrapper() throws {
+        @Capitalized var test = "hello"
+        XCTAssertEqual(test, "Hello")
+    }
 }
