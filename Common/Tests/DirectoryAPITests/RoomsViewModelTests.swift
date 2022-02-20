@@ -31,6 +31,7 @@ class RoomsViewModelTests: XCTestCase {
             expectation.fulfill()
         }
 
+        roomsViewModel.occupancyFilter = .occupied
         roomsViewModel.occupancyFilter = .all
 
         // Wait for the expectation to be fulfilled, or time out
